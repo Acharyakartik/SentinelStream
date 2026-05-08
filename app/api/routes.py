@@ -65,7 +65,7 @@ async def create_transaction(
         risk_score=tx.risk_score,
         triggered_rules=triggered_rules,
         created_at=tx.created_at or datetime.utcnow(),
-    ).model_dump()
+    ).model_dump(mode="json")
     await save_record(db, x_idempotency_key, request_hash, response_payload, status_code=200)
 
     await db.commit()

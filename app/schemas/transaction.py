@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field, field_validator
 
 
 class TransactionCreate(BaseModel):
-    user_id: str = Field(min_length=3, max_length=64)
-    merchant_id: str = Field(min_length=3, max_length=64)
+    user_id: str = Field(min_length=1, max_length=64)
+    merchant_id: str = Field(min_length=1, max_length=64)
     amount: Decimal = Field(gt=0, max_digits=12, decimal_places=2)
     currency: str = Field(min_length=3, max_length=3, default="USD")
     country: str = Field(min_length=2, max_length=2)

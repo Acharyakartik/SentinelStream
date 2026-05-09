@@ -8,7 +8,7 @@ REQUIRED_FILES = [
     "alembic.ini",
     "alembic/env.py",
     "alembic/versions/0001_initial.py",
-    # "docker-compose.yml",
+    "docker-compose.yml",
     "tests/locustfile.py",
 ]
 

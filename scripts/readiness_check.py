@@ -18,16 +18,16 @@ def check_required_files() -> tuple[bool, list[str]]:
     return (len(missing) == 0, missing)
 
 
-# def check_python_syntax() -> tuple[bool, list[str]]:
-#     failures: list[str] = []
-#     for path in pathlib.Path('.').rglob('*.py'):
-#         if "__pycache__" in path.parts:
-#             continue
-#         try:
-#             compile(path.read_text(encoding='utf-8'), str(path), 'exec')
-#         except Exception as exc:
-#             failures.append(f"{path}: {exc}")
-#     return (len(failures) == 0, failures)
+def check_python_syntax() -> tuple[bool, list[str]]:
+    failures: list[str] = []
+    for path in pathlib.Path('.').rglob('*.py'):
+        if "__pycache__" in path.parts:
+            continue
+        try:
+            compile(path.read_text(encoding='utf-8'), str(path), 'exec')
+        except Exception as exc:
+            failures.append(f"{path}: {exc}")
+    return (len(failures) == 0, failures)
 
 
 def main() -> int:
